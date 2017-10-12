@@ -104,7 +104,7 @@ class CalendarList extends Component {
     });
   }
 
-  onViewableItemsChanged({viewableItems}) {
+  onViewableItemsChanged: ({ viewableItems }) => {
     function rowIsCloseToViewable(index, distance) {
       for (let i = 0; i < viewableItems.length; i++) {
         if (Math.abs(index - parseInt(viewableItems[i].index)) <= distance) {
@@ -163,7 +163,7 @@ class CalendarList extends Component {
         //snapToInterval={calendarHeight}
         removeClippedSubviews={Platform.OS === 'android' ? false : true}
         pageSize={1}
-        onViewableItemsChanged={this.onViewableItemsChanged.bind(this)}
+        onViewableItemsChanged={this.onViewableItemsChanged}
         renderItem={this.renderCalendar.bind(this)}
         showsVerticalScrollIndicator={false}
         scrollEnabled={this.props.scrollingEnabled !== undefined ? this.props.scrollingEnabled : true}
